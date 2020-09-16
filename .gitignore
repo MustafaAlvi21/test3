@@ -1,0 +1,5 @@
+.env
+node_modules
+scratch/loginUser_id
+scratch/loginUser
+scratch/userToken
