@@ -201,7 +201,7 @@ div {
                                     <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
                                 </div>
                                 <!-- <input type="date" name="date"  class="form-control .is-valid input1" id="validationServerUsername " placeholder="Username" aria-describedby="inputGroupPrepend3" required> -->
-                                <input type="text" name="date" id="datepicker" class="form-control" required/>
+                                <input type="date" name="date" id="myDate" onfocus="myFunction()" min="2000-01-10" max="2050-01-10" class="form-control" required/>
                             </div>
                         </div>
                     </div>
@@ -212,18 +212,62 @@ div {
 
 <!-- <p id="login1" style="font-size: 100px;" ><%= loginUser %></p> -->
 <input disabled hidden type="text" style="font-size: 100px;" id="login1" value="<%= loginUser %>" >
-<script type="text/javascript">
-    $(function() {
+//<script type="text/javascript">
+  //  $(function() {
+    //    var date = new Date();
+      //  var currentMonth = date.getMonth();
+        //var currentDate = date.getDate();
+//        var currentYear = date.getFullYear();
+  //      $('#datepicker').datepicker({
+    //        minDate: new Date(currentYear, currentMonth, currentDate)
+
+      //  });
+//    });
+//</script>
+
+        <script>
         var date = new Date();
-        var currentMonth = date.getMonth();
+        var currentMonth_min = date.getMonth()+1;
+        var currentMonth_max = date.getMonth()+2;
         var currentDate = date.getDate();
         var currentYear = date.getFullYear();
-        $('#datepicker').datepicker({
-            minDate: new Date(currentYear, currentMonth, currentDate)
+        var currentYear_max = date.getFullYear();
 
-        });
-    });
-</script>
+month1 = date.getMonth()+1
+a= month1.toString()
+month2 = date.getMonth()+2
+     if(month2 == 13){
+     month2 = 1; 
+     currentMonth_max = 1
+     currentYear_max = currentYear + 1;
+     console.log(month2)
+     console.log(currentYear)
+     } 
+b= month2.toString()
+        if (a.length == 1){
+        date1  = currentYear+"-"+'0'+currentMonth_min+"-"+currentDate
+        date2  = date1.toString();
+        }else{
+        date1  = currentYear+"-"+currentMonth_min+"-"+currentDate
+        date2  = date1.toString();
+        }
+
+        if (b.length == 1 ){
+        date3  = currentYear_max+"-"+'0'+currentMonth_max+"-"+currentDate
+        date4  = date3.toString();
+        }else{
+        date3  = currentYear_max+"-"+currentMonth_max+"-"+currentDate
+        date4  = date3.toString();
+        }
+        
+    console.log(b + ' b')
+    function myFunction() {
+      var x = document.getElementById("myDate").min = date2;
+      var y = document.getElementById("myDate").max = date4;
+    }
+    </script>
+
+
 
 
 <script>
